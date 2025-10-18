@@ -1,0 +1,55 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git"
+    },
+    "files": {
+        "ignoreUnknown": false,
+        "includes": [
+            "**",
+            "!**/node_modules",
+            "!**/dist",
+            "!**/.next",
+            "!package-lock.json"
+        ]
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true
+        }
+    },
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": {
+                    "level": "on",
+                    "options": {
+                        "groups": [
+                            { "type": false, "source": ["node*", "node*/*"] },
+                            ":BLANK_LINE:",
+                            { "type": false, "source": ":PACKAGE:" },
+                            { "type": false, "source": ":PATH:" },
+                            ":BLANK_LINE:",
+                            { "type": true } // 型定義
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        },
+        "formatter": {
+            "lineWidth": 200
+        }
+    }
+}

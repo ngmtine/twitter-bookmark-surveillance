@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["node"],
+        "outDir": "./dist"
+    },
+    "exclude": ["node_modules", "dist"]
+}
