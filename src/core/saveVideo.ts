@@ -1,8 +1,8 @@
 import path from "node:path";
 
-import { runShellCommand } from "../lib/runShellCommand";
+import { runShellCommand } from "../lib/runShellCommand.js";
 
-import type { SaveContext } from "./type";
+import type { SaveContext } from "./type.js";
 
 /**
  * ツイートに含まれる動画を保存する

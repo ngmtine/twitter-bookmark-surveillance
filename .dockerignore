@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.gitignore
+.vscode
+bookmarks
+auth.json
+*.sqlite
+*.sqlite-journal
+README.md
+error_screenshot.png

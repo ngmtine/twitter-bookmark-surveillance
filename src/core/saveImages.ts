@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import type { SaveContext } from "./type";
+import type { SaveContext } from "./type.js";
 
 /**
  * ツイートに含まれる画像を保存する

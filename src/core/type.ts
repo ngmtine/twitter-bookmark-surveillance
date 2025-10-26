@@ -1,5 +1,4 @@
 import type { Locator, Page } from "playwright";
-import type { ITweetRepository } from "../interfaces/ITweetRepository";
 
 /**
  * Twitter APIレスポンスの型定義 (必要な部分のみ)

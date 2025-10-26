@@ -1,0 +1,15 @@
+services:
+    app:
+        build: .
+        container_name: twitter-bookmark-surveillance
+
+        volumes:
+            - ${DOWNLOAD_DIR:?err}:/app/bookmarks
+            - ./auth.json:/app/auth.json:ro
+            - ./src:/app/src
+
+        # 共有メモリサイズ指定（Playwrightの安定動作のため）
+        shm_size: "1gb"
+        # Chromeのサンドボックスに必要な権限を付与
+        cap_add:
+            - "SYS_ADMIN"

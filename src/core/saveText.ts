@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import type { SaveContext } from "./type";
+import type { SaveContext } from "./type.js";
 
 /**
  * ツイート本文を保存する

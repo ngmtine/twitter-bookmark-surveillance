@@ -1,11 +1,11 @@
-import { formatDateTimeForFilename } from "../lib/formatDateTimeForFilename";
-import { printPostInfo } from "./printPostInfo";
-import { saveImages } from "./saveImages";
-import { saveText } from "./saveText";
-import { saveVideo } from "./saveVideo";
+import { formatDateTimeForFilename } from "../lib/formatDateTimeForFilename.js";
+import { printPostInfo } from "./printPostInfo.js";
+import { saveImages } from "./saveImages.js";
+import { saveText } from "./saveText.js";
+import { saveVideo } from "./saveVideo.js";
 
-import type { ITweetRepository } from "../interfaces/ITweetRepository";
-import type { SaveContext } from "./type";
+import type { ITweetRepository } from "../interfaces/ITweetRepository.js";
+import type { SaveContext } from "./type.js";
 
 export type SaveTweetDataArgs = SaveContext & {
     tweetRepository: ITweetRepository;

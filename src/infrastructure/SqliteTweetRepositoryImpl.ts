@@ -1,6 +1,6 @@
-import Database from "better-sqlite3";
+import { DatabaseSync } from "node:sqlite";
 
-import type { ITweetRepository, TweetData } from "../interfaces/ITweetRepository";
+import type { ITweetRepository, TweetData } from "../interfaces/ITweetRepository.js";
 
 /**
  * ITweetRepository の SQLite 実装を生成するファクトリ
@@ -8,7 +8,7 @@ import type { ITweetRepository, TweetData } from "../interfaces/ITweetRepository
  * @returns ITweetRepository のインスタンス
  */
 export const createSqliteTweetRepositoryImpl = (dbPath: string): ITweetRepository => {
-    const db = new Database(dbPath);
+    const db = new DatabaseSync(dbPath);
 
     // DB初期化
     db.exec(`

@@ -1,9 +1,9 @@
 import path from "node:path";
 
-import { saveTweetData } from "./saveTweetData";
+import { saveTweetData } from "./saveTweetData.js";
 
 import type { Page } from "playwright";
-import type { ITweetRepository } from "../interfaces/ITweetRepository";
+import type { ITweetRepository } from "../interfaces/ITweetRepository.js";
 
 const SAVE_DIR = path.join(process.cwd(), "bookmarks");
 const BOOKMARKS_URL = "https://x.com/i/bookmarks";

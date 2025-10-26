@@ -2,12 +2,12 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { chromium } from "playwright";
-import { parseAndCacheTweets } from "./core/parseAndCacheTweets";
-import { runScrapingLoop } from "./core/runScrapingLoop";
-import { createSqliteTweetRepositoryImpl } from "./infrastructure/SqliteTweetRepositoryImpl";
+import { parseAndCacheTweets } from "./core/parseAndCacheTweets.js";
+import { runScrapingLoop } from "./core/runScrapingLoop.js";
+import { createSqliteTweetRepositoryImpl } from "./infrastructure/SqliteTweetRepositoryImpl.js";
 
 import type { Browser, BrowserContext } from "playwright";
-import type { ITweetRepository } from "./interfaces/ITweetRepository";
+import type { ITweetRepository } from "./interfaces/ITweetRepository.js";
 
 const AUTH_FILE = "auth.json";
 const SAVE_DIR = path.join(process.cwd(), "bookmarks");

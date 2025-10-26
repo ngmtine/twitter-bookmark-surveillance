@@ -1,5 +1,5 @@
 import type { Locator } from "playwright";
-import type { TweetDetail } from "./type";
+import type { TweetDetail } from "./type.js";
 
 /**
  * 引数の型
