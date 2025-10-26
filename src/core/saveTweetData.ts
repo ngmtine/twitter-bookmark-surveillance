@@ -23,13 +23,14 @@ export const saveTweetData = async (args: SaveTweetDataArgs): Promise<boolean> =
         const href = await linkElement.getAttribute("href");
         tweetId = href ? href.split("/status/")[1].split("/")[0] : "";
 
-        if (!tweetId) return false;
+        if (!tweetId || !href) return false;
         if (await tweetRepository.isProcessed(tweetId)) {
             console.log(`ツイート (${tweetId}) は処理済みです`);
             return false;
         }
 
-        console.log(`新規ブックマークを処理中: ${tweetId}`);
+        const tweetUrl = `https://x.com${href}`;
+        console.log(`新規ブックマークを処理中: ${tweetUrl}`);
         await printPostInfo({ tweetDetail, article });
 
         const tweetTime = tweetDetail?.legacy?.created_at
@@ -48,9 +49,10 @@ export const saveTweetData = async (args: SaveTweetDataArgs): Promise<boolean> =
         const videoFilename = await saveVideo(saveContext, baseFilename, tweetId);
 
         await tweetRepository.markAsProcessed(tweetId, {
-            tweetText: textContent ?? undefined,
+            tweetText: textContent ?? "",
             imageFilenames,
             videoFilename,
+            url: tweetUrl,
         });
 
         return true;

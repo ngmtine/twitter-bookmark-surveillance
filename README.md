@@ -8,13 +8,6 @@ twitter のブックマークをローカルに全て保存
 -   ツイート本文をテキストファイルとして保存
 -   ツイートに含まれる画像/動画をダウンロード
 
-## 動作要件
-
--   node
--   sqlite3
--   ffmpeg
-
-
 ## 認証設定
 
 このツールは、あなたのブラウザのログイン情報 (Cookie) を使用します  
@@ -30,7 +23,6 @@ WSL環境から以下のコマンドを実行すると、ホスト側のchrome�
 ```bash
 bash scripts/run_wslhost_chrome.sh
 ```
-
 
 #### ステップ2: 認証情報の保存
 
@@ -49,7 +41,8 @@ tsx src/saveAuth.ts
 以下のコマンドを実行すると、ブックマークの取得と保存が開始されます  
 
 ```bash
-npm run dev
+cp .env.example .env
+docker compose up
 ```
 
 ## 保存先

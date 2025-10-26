@@ -5,6 +5,7 @@ export interface TweetData {
     tweetText?: string;
     imageFilenames?: string[];
     videoFilename?: string;
+    url?: string;
 }
 
 /**

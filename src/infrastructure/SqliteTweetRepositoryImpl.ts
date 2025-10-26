@@ -1,5 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 
+import { runAsync } from "../lib/runAsync.js";
+
 import type { ITweetRepository, TweetData } from "../interfaces/ITweetRepository.js";
 
 /**
@@ -20,16 +22,10 @@ CREATE TABLE IF NOT EXISTS processed_tweets (
     image_filename_2 TEXT,
     image_filename_3 TEXT,
     image_filename_4 TEXT,
-    video_filename TEXT
+    video_filename TEXT,
+    url TEXT
 );
     `);
-
-    /**
-     * better-sqlite3が同期APIであるため、インターフェースに合わせるための非同期ラッパー
-     */
-    const runAsync = async <T>(fn: () => T): Promise<T> => {
-        return Promise.resolve(fn());
-    };
 
     const isProcessed = (tweetId: string): Promise<boolean> => {
         return runAsync(() => {
@@ -49,8 +45,9 @@ INSERT OR IGNORE INTO processed_tweets (
     image_filename_2,
     image_filename_3,
     image_filename_4,
-    video_filename
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    video_filename,
+    url
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             `);
 
             const images = data.imageFilenames || [];
@@ -64,6 +61,7 @@ INSERT OR IGNORE INTO processed_tweets (
                 images[2] ?? null,
                 images[3] ?? null,
                 data.videoFilename ?? null,
+                data.url ?? null,
             );
         });
     };
